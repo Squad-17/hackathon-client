@@ -1,9 +1,14 @@
 import Joi from 'joi';
 
 const fieldsValidations = {
-  name: Joi.string().required().messages({
-    'string.empty': 'Este campo é obrigatório.',
-  }),
+  name: Joi.string()
+    .regex(/^[a-zA-Z].{3,}$/)
+    .required()
+    .messages({
+      'string.empty': 'Este campo é obrigatório.',
+      'string.pattern.base':
+        'Nome do funcionário deve conter pelo menos 3 caracteres e não possuir números.',
+    }),
   email: Joi.string()
     .email({ tlds: { allow: false } })
     .required()
@@ -11,12 +16,17 @@ const fieldsValidations = {
       'string.empty': 'Este campo é obrigatório.',
       'string.email': 'Preencha um email válido.',
     }),
-  password: Joi.string().required().messages({
-    'string.empty': 'Este campo é obrigatório.',
-  }),
+  password: Joi.string()
+    .regex(/^(?=.*?[a-z])(?=.*?[0-9]).{8,}$/)
+    .required()
+    .messages({
+      'string.empty': 'Este campo é obrigatório.',
+      'string.pattern.base':
+        'Senha deve conter pelo menos 1 letra minúscula, 1 número e 8 caracteres',
+    }),
   confirmPassword: Joi.string().valid(Joi.ref('password')).required().messages({
     'string.empty': 'Este campo é obrigatório.',
-    'any.only': 'As senhas devem ser iguais.',
+    'any.only': 'As senhas não conferem.',
   }),
 };
 
