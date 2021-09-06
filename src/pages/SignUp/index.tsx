@@ -41,8 +41,6 @@ export default function SignUp() {
       })
       .catch((error) => {
         setFormError(error.response.data.erro);
-
-        return;
       });
   }
 
