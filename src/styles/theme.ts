@@ -13,7 +13,7 @@ export default {
     secondary: '#404099',
     white: '#FFFFFF',
     black: '#000000',
-    red: '#FF6347',
+    red: '#FF0033',
   },
   spacings: {
     xxsmall: '0.8rem',
