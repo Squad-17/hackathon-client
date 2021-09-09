@@ -1,6 +1,9 @@
 import { useHistory } from 'react-router';
 
+import Container from '../../components/Container';
 import FormSignIn from '../../components/FormSignIn';
+import Nav from '../../components/Nav';
+import { ReactComponent as ComputerGuy } from '../../assets/computer-guy.svg';
 
 import * as S from './styles';
 
@@ -12,19 +15,25 @@ export default function SignIn() {
   }
 
   return (
-    <S.Wrapper>
-      <S.Heading>Área de login</S.Heading>
+    <Container>
+      <Nav />
 
-      <S.FormWrapper>
-        <FormSignIn />
+      <S.Wrapper>
+        <ComputerGuy />
 
-        <S.CallSignUp>
-          <p>
-            Não possui uma conta?{' '}
-            <span onClick={goToSignUp}>Cadastre-se aqui</span>
-          </p>
-        </S.CallSignUp>
-      </S.FormWrapper>
-    </S.Wrapper>
+        <S.FormWrapper>
+          <S.Heading>Área de login</S.Heading>
+
+          <FormSignIn />
+
+          <S.CallSignUp>
+            <p>
+              Não possui uma conta?{' '}
+              <span onClick={goToSignUp}>Cadastre-se aqui</span>
+            </p>
+          </S.CallSignUp>
+        </S.FormWrapper>
+      </S.Wrapper>
+    </Container>
   );
 }

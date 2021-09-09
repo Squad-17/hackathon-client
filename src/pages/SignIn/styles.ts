@@ -1,6 +1,18 @@
 import styled, { css } from 'styled-components';
 
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  padding-top: 10rem;
+
+  @media (max-width: 800px) {
+    padding-top: 4rem;
+
+    svg {
+      display: none;
+    }
+  }
+`;
 
 export const Heading = styled.h2`
   ${({ theme }) => css`
@@ -13,6 +25,15 @@ export const Heading = styled.h2`
 export const FormWrapper = styled.div`
   width: 100%;
   max-width: 40rem;
+  margin-left: 10rem;
+
+  @media (max-width: 900px) {
+    margin-left: 5rem;
+  }
+
+  @media (max-width: 800px) {
+    margin-left: 0;
+  }
 `;
 
 export const CallSignUp = styled.div`
