@@ -93,6 +93,14 @@ export const Dates = styled.div`
     .date-available {
       background: transparent;
     }
+
+    .date-selected {
+      border: solid 0.3rem ${theme.colors.secondary};
+
+      &:hover {
+        border: solid 0.3rem ${theme.colors.secondary};
+      }
+    }
   `}
 `;
 
