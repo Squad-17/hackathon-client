@@ -15,7 +15,9 @@ export const Wrapper = styled.div`
   height: 100vh;
   max-height: 100vh;
 
-  button {
+  padding-bottom: 13rem;
+
+  > button {
     margin-top: 5rem;
     margin-left: auto;
     display: inline-block;
