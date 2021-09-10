@@ -1,9 +1,9 @@
 import Nav from "../../components/Nav";
-import Button from "../../components/Button";
 import Container from "../../components/Container";
 import NextSchedules from "../../components/NextSchedulesList";
 
 import * as S from "./styles";
+import { Link } from "react-router-dom";
 import { ReactComponent as Avatar } from "../../assets/guy-1.svg";
 
 export default function Home() {
@@ -26,7 +26,7 @@ export default function Home() {
           <NextSchedules />
         </S.GridWrapper>
 
-        <Button>Agendar</Button>
+        <Link to="/agendar" className="link-agendar">Agendar</Link>
       </S.Wrapper>
     </Container>
   );
