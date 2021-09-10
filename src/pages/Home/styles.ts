@@ -21,12 +21,12 @@ export const Wrapper = styled.div`
     .link-agendar {
       font-size: 3rem;
       font-weight: 900;
-      line-height: 3rem;      
-      
+      line-height: 3rem;
+
       margin-top: 5rem;
       margin-left: auto;
       padding: 2rem 4rem;
-      display: inline-block;      
+      display: inline-block;
       border-radius: 0.8rem;
       text-decoration: none;
 
@@ -71,6 +71,32 @@ export const ProfileTag = styled.p`
 
     &.blue {
       background: ${theme.colors.secondary};
+    }
+  `}
+`;
+
+export const PageScrollCircleList = styled.ul`
+  display: flex;
+  row-gap: 2.5rem;
+  list-style: none;
+  flex-direction: column;
+
+  position: fixed;
+  right: 15rem;
+  top: 50%;
+  // transform: translateY(-50%);
+`;
+
+export const PageScrollCircle = styled.li`
+  ${({ theme }) => css`
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    border-radius: 50%;
+    background: #c4c4c4;
+
+    &.active {
+      background: ${theme.colors.primary};
     }
   `}
 `;
