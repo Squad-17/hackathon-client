@@ -1,17 +1,19 @@
 import Container from '../../components/Container';
+import FirstStepScheduling from '../../components/FirstStepScheduling';
 import FormStepBar from '../../components/FormStepBar';
-import { useAuth } from '../../hooks/auth';
+
+import * as S from './styles';
 
 export default function Scheduling() {
-  const { name, signOut } = useAuth();
-
   return (
     <Container>
-      <FormStepBar currentStep={3}/>
-      <h1>Agendamento</h1>
-      <h2>Olá, {name}</h2>
+      <S.Wrapper>
+        <FormStepBar currentStep={1} />
 
-      <button onClick={signOut}>signOut</button>
+        <S.SchedulingWrapper>
+          <FirstStepScheduling />
+        </S.SchedulingWrapper>
+      </S.Wrapper>
     </Container>
   );
 }
