@@ -15,6 +15,7 @@ export default function FormSignUp() {
     name: '',
     email: '',
     password: '',
+    occupation: '',
     confirmPassword: '',
   });
   const { signUp } = useAuth();
@@ -25,7 +26,7 @@ export default function FormSignUp() {
 
     setFormError('');
 
-    const errors = signUpValidate(values);
+    const errors = signUpValidate({ name: values.name, email: values.email, password: values.password, confirmPassword: values.confirmPassword });
 
     if (Object.keys(errors).length) {
       setFieldErrors(errors);
@@ -35,11 +36,11 @@ export default function FormSignUp() {
 
     setFieldErrors({});
 
-    const { name: nome, email, password: senha } = values;
+    const { name: nome, email, occupation: cargo, password: senha } = values;
 
-    signUp({ nome, email, senha })
+    signUp({ nome, email, cargo, senha })
       .then(() => {
-        history.push('/agendar');
+        history.push("/");
       })
       .catch((error) => {
         setFormError(error.response.data.erro);
@@ -54,43 +55,47 @@ export default function FormSignUp() {
     <S.Wrapper>
       <form onSubmit={handleSubmit}>
         <TextField
-          label='Nome'
-          type='text'
-          name='name'
-          placeholder='Nome completo'
+          label="Nome"
+          type="text"
+          name="name"
+          placeholder="Nome completo"
           error={fieldErrors.name}
-          onInputChange={(v) => handleInput('name', v)}
+          onInputChange={(v) => handleInput("name", v)}
         />
 
         <TextField
-          label='Email'
-          type='email'
-          name='email'
-          placeholder='email@email.com'
+          label="Email"
+          type="email"
+          name="email"
+          placeholder="email@email.com"
           error={fieldErrors.email}
-          onInputChange={(v) => handleInput('email', v)}
+          onInputChange={(v) => handleInput("email", v)}
         />
 
+        <TextField label="Cargo" type="text" name="occupation" placeholder="Dev. Front End" onInputChange={(v) => handleInput("occupation", v)} />
+
         <TextField
-          label='Senha'
-          name='password'
-          placeholder='&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;'
-          type='password'
+          label="Senha"
+          name="password"
+          placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"
+          type="password"
           error={fieldErrors.password}
-          onInputChange={(v) => handleInput('password', v)}
+          onInputChange={(v) => handleInput("password", v)}
         />
 
         <TextField
-          label='Confirmar Senha'
-          name='confirmPassword'
-          placeholder='&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;'
-          type='password'
+          label="Confirmar Senha"
+          name="confirmPassword"
+          placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"
+          type="password"
           error={fieldErrors.confirmPassword}
-          onInputChange={(v) => handleInput('confirmPassword', v)}
+          onInputChange={(v) => handleInput("confirmPassword", v)}
         />
 
         <S.ButtonWrapper>
-          <Button className='bigButtonOrange' type='submit'>Cadastrar</Button>
+          <Button type="submit" onClick={handleSubmit}>
+            Cadastrar
+          </Button>
         </S.ButtonWrapper>
       </form>
 
