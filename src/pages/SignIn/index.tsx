@@ -7,6 +7,7 @@ import { ReactComponent as Puzzle } from '../../assets/computer-guy.svg';
 
 import * as S from './styles';
 import Button from '../../components/Button';
+import LinkViewPages from '../../components/LinkViewPages';
 
 export default function SignIn() {
   const history = useHistory();
@@ -19,6 +20,8 @@ export default function SignIn() {
     <Container>
       <Nav />
 
+      <LinkViewPages name="<< Home FCamara"
+        href='https://www.fcamara.com.br/' target='_blank' rel='noreferrer'/>
       <S.Wrapper>
         <Puzzle />
 
