@@ -13,5 +13,11 @@ export const Wrapper = styled.button`
     background: ${theme.colors.primary};
     color: ${theme.colors.white};
     font-size: ${theme.font.sizes.medium};
+
+    &.outlined {
+      background: none;
+      color: ${theme.colors.secondary};
+      border: 2px solid ${theme.colors.secondary};
+    }
   `}
 `;
