@@ -5,7 +5,9 @@ import Button from '../Button';
 
 import * as S from './styles';
 
-type Local = {
+import { Informations } from '../../pages/Scheduling';
+
+type AvailableLocal = {
   id: number;
   cidade: string;
   endereco: string;
@@ -13,18 +15,37 @@ type Local = {
 
 type AvailableDates = {
   data: string;
-  disponivel: string;
+  disponivel: boolean;
   diaDaSemana: string;
-  diaDoMes: string;
+  diaDoMes: number;
 };
 
-export default function FirstStepScheduling() {
-  const [locals, setLocals] = useState<Local[]>([] as Local[]);
-  const [selectedLocal, setSelectedLocal] = useState(1);
+type LocalInformations = Pick<Informations, 'localId' | 'cidade' | 'endereco'>;
+
+type FirstStepSchedulingProps = {
+  setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
+  setInformations: React.Dispatch<React.SetStateAction<Informations>>;
+};
+
+export default function FirstStepScheduling({
+  setCurrentStep,
+  setInformations,
+}: FirstStepSchedulingProps) {
+  const [availableLocals, setAvailableLocals] = useState<AvailableLocal[]>(
+    [] as AvailableLocal[]
+  );
   const [availableDates, setAvailableDates] = useState<AvailableDates[]>(
     {} as AvailableDates[]
   );
+  const [selectedLocalId, setSelectedLocalId] = useState(1);
   const [selectedDate, setSelectedDate] = useState('');
+  const [localInformations, setLocalInformations] = useState<LocalInformations>(
+    {} as LocalInformations
+  );
+  const [dateInformations, setDateInformations] = useState<AvailableDates>(
+    {} as AvailableDates
+  );
+  const [error, setError] = useState(false);
 
   async function getAvailableDates(localId: number) {
     api
@@ -36,29 +57,51 @@ export default function FirstStepScheduling() {
   }
 
   useEffect(() => {
-    getAvailableDates(selectedLocal);
-  }, [selectedLocal]);
+    setSelectedDate('');
+    setDateInformations({} as AvailableDates);
+    getAvailableDates(selectedLocalId);
+  }, [selectedLocalId]);
 
   useEffect(() => {
-    async function getLocals() {
+    async function getAvailableLocals() {
       api
         .get('local')
         .then((data) => {
-          setLocals(data.data);
+          const { id: localId, cidade, endereco } = data.data[0];
+
+          setLocalInformations({ localId, cidade, endereco });
+          setAvailableLocals(data.data);
         })
         .catch((error) => console.log(error));
     }
 
-    getLocals();
+    getAvailableLocals();
   }, []);
 
-  async function handleScheduling() {
-    if (!selectedLocal || !selectedDate) return;
+  function handleSelectLocal(local: AvailableLocal, index: number) {
+    setLocalInformations({
+      localId: local.id,
+      endereco: local.endereco,
+      cidade: local.cidade,
+    });
 
-    api
-      .post('agendamento', { data: selectedDate, localId: selectedLocal })
-      .then((response) => console.log(response))
-      .catch((error) => console.log(error));
+    setSelectedLocalId(index + 1);
+  }
+
+  function handleSelectDate(date: AvailableDates) {
+    setSelectedDate(date.data);
+    setDateInformations(date);
+  }
+
+  function goToConfirmation() {
+    if (!localInformations.localId || !dateInformations.data) {
+      setError(true);
+
+      return;
+    }
+
+    setInformations({ ...localInformations, ...dateInformations });
+    setCurrentStep((s) => ++s);
   }
 
   return (
@@ -68,18 +111,18 @@ export default function FirstStepScheduling() {
       <S.Locals>
         <h3>Sede</h3>
 
-        {locals.length > 0 &&
-          locals.map((local, index) => {
+        {availableLocals.length > 0 &&
+          availableLocals.map((local, index) => {
             return (
               <div key={local.id} className='local'>
                 <div className='select-wrapper'>
                   <button
                     className={
-                      selectedLocal === index + 1
+                      selectedLocalId === index + 1
                         ? 'button button-active'
                         : 'button'
                     }
-                    onClick={() => setSelectedLocal(index + 1)}
+                    onClick={() => handleSelectLocal(local, index)}
                   ></button>
                   <p className='city'>{local.cidade}</p>
                 </div>
@@ -102,10 +145,14 @@ export default function FirstStepScheduling() {
                   <button
                     className={
                       date.disponivel
-                        ? 'date-button date-available'
-                        : 'date-button'
+                        ? `date-button date-available ${
+                            date.data === selectedDate && 'date-selected'
+                          }`
+                        : `date-button button-disabled ${
+                            date.data === selectedDate && 'date-selected'
+                          }`
                     }
-                    onClick={() => setSelectedDate(date.data)}
+                    onClick={() => handleSelectDate(date)}
                   >
                     {date.diaDoMes}
                   </button>
@@ -116,8 +163,14 @@ export default function FirstStepScheduling() {
       </S.Dates>
 
       <S.ButtonWrapper>
-        <Button onClick={handleScheduling}>Próximo</Button>
+        <Button onClick={goToConfirmation}>Próximo</Button>
       </S.ButtonWrapper>
+
+      {error && (
+        <S.Error>
+          <p>Selecione uma data</p>
+        </S.Error>
+      )}
     </S.Wrapper>
   );
 }
