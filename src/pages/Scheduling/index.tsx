@@ -3,7 +3,9 @@ import { useState } from 'react';
 import Container from '../../components/Container';
 import FirstStepScheduling from '../../components/FirstStepScheduling';
 import FormStepBar from '../../components/FormStepBar';
+import Nav from '../../components/Nav';
 import SchedulingConfirmation from '../../components/SchedulingConfirmation';
+import SchedulingSucceed from '../../components/SchedulingSucceed';
 
 import * as S from './styles';
 
@@ -25,6 +27,8 @@ export default function Scheduling() {
 
   return (
     <Container>
+      <Nav />
+
       <S.Wrapper>
         <FormStepBar currentStep={currentStep} />
 
@@ -42,6 +46,8 @@ export default function Scheduling() {
               informations={informations}
             />
           )}
+
+          {currentStep === 3 && <SchedulingSucceed />}
         </S.SchedulingWrapper>
       </S.Wrapper>
     </Container>
