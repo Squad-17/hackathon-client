@@ -15,6 +15,7 @@ export const Label = styled.label`
 export const Input = styled.input`
   ${({ theme }) => css`
     width: 100%;
+    height: 4rem;
     margin: ${theme.spacings.xxsmall} 0;
     font-size: ${theme.font.sizes.medium};
     padding: ${theme.spacings.xxsmall};

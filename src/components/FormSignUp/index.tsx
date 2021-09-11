@@ -90,7 +90,7 @@ export default function FormSignUp() {
         />
 
         <S.ButtonWrapper>
-          <Button type='submit'>Cadastrar</Button>
+          <Button className='bigButtonOrange' type='submit'>Cadastrar</Button>
         </S.ButtonWrapper>
       </form>
 
