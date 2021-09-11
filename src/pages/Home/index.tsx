@@ -1,17 +1,19 @@
 import Nav from "../../components/Nav";
 import Container from "../../components/Container";
 import Protocols from "../../components/Protocols";
+import AvatarModal from "../../components/AvatarModal";
 import NextSchedules from "../../components/NextSchedulesList";
 
+import api from "../../services/api";
 import * as S from "./styles";
 
-import { useState } from "react";
-import { ReactComponent as Avatar } from "../../assets/avatars/avatar1.svg";
-import AvatarModal from "../../components/AvatarModal";
+import { useEffect, useState } from "react";
+import avatar from '../../assets/avatars/avatar3.svg'; 
 
 export default function Home() {
   const [pageIndex, setPageIndex] = useState(1);
   const [avatarModalActive, setAvatarModalActive] = useState(false);
+  const [userInfo, setUserInfo] = useState({ nome: "", cargo: "", avatar: "" });
 
   function handleClick(index: number, target: string) {
     setPageIndex(index);
@@ -19,6 +21,13 @@ export default function Home() {
     const element = document.getElementById(target);
     element?.scrollIntoView({ behavior: "smooth" });
   }
+
+  useEffect(() => {
+    api
+      .get("funcionario/info")
+      .then((data) => setUserInfo(data.data))
+      .catch((error) => console.error(error));
+  }, []);
 
   return (
     <Container className="max-height">
@@ -36,11 +45,12 @@ export default function Home() {
 
         <S.GridWrapper>
           <S.ProfileWrapper>
-            <Avatar className="profile-avatar" onClick={() => setAvatarModalActive(true)} />
+            {userInfo.avatar && <img src={avatar} className="profile-avatar" onClick={() => setAvatarModalActive(true)} alt="" />}
 
             <S.ProfileTag className="blue"> #ProudToBeOrange</S.ProfileTag>
-            <S.ProfileTag className="orange">Henrique Lopes</S.ProfileTag>
-            <S.ProfileTag className="orange">Dev. Front-End</S.ProfileTag>
+            <S.ProfileTag className="orange">{userInfo.nome}</S.ProfileTag>
+
+            {userInfo.cargo && <S.ProfileTag className="orange">{userInfo.cargo}</S.ProfileTag>}
           </S.ProfileWrapper>
 
           <NextSchedules />
