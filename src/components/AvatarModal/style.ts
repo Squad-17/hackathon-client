@@ -4,11 +4,15 @@ export const Mask = styled.div`
   position: fixed;
   inset: 0;
 
-  display: grid;
+  display: none;
   place-items: center;
 
   z-index: 3;
   background: rgba(0, 0, 0, 0.3);
+
+  &.active {
+    display: grid;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -25,9 +29,9 @@ export const Wrapper = styled.div`
     list-style: none;
 
     svg {
-        width: 150px;
-        height: 150px;
-        cursor pointer;
+      width: 150px;
+      height: 150px;
+      cursor pointer;
     }
   }
 `;

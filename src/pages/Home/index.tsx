@@ -6,10 +6,12 @@ import NextSchedules from "../../components/NextSchedulesList";
 import * as S from "./styles";
 
 import { useState } from "react";
-import { ReactComponent as Avatar } from "../../assets/guy-1.svg";
+import { ReactComponent as Avatar } from "../../assets/avatars/avatar1.svg";
+import AvatarModal from "../../components/AvatarModal";
 
 export default function Home() {
   const [pageIndex, setPageIndex] = useState(1);
+  const [avatarModalActive, setAvatarModalActive] = useState(false);
 
   function handleClick(index: number, target: string) {
     setPageIndex(index);
@@ -25,6 +27,8 @@ export default function Home() {
         <S.PageScrollCircle className={pageIndex === 2 ? "active" : ""} onClick={() => handleClick(2, "protocols")} />
       </S.PageScrollCircleList>
 
+      <AvatarModal active={avatarModalActive} userAvatar="avatar8" onClose={() => setAvatarModalActive(false)} />
+
       <S.Wrapper id="dashboard">
         <Nav />
 
@@ -32,7 +36,7 @@ export default function Home() {
 
         <S.GridWrapper>
           <S.ProfileWrapper>
-            <Avatar className="profile-avatar" />
+            <Avatar className="profile-avatar" onClick={() => setAvatarModalActive(true)} />
 
             <S.ProfileTag className="blue"> #ProudToBeOrange</S.ProfileTag>
             <S.ProfileTag className="orange">Henrique Lopes</S.ProfileTag>
