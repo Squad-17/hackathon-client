@@ -19,5 +19,18 @@ export const Wrapper = styled.button`
       color: ${theme.colors.secondary};
       border: 2px solid ${theme.colors.secondary};
     }
+
+    &.bigButtonWhite {
+      background-color: ${theme.colors.white};
+      color: ${theme.colors.secondary};
+      border: 1px solid ${theme.colors.secondary};
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    &.bigButtonOrange {
+      width: 100%;
+    }
+
   `}
 `;
