@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import api from "../../services/api";
 import NextSchedule from "../NextSchedule";
 
@@ -28,6 +29,10 @@ export default function NextSchedules() {
         schedules.map((schedule, index) => {
           return <NextSchedule schedule={schedule} key={index} />;
         })}
+
+      <Link to="/agendar" className="link-agendar">
+        Agendar
+      </Link>
     </S.Wrapper>
   );
 }

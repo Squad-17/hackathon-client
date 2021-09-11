@@ -6,7 +6,6 @@ import NextSchedules from "../../components/NextSchedulesList";
 import * as S from "./styles";
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { ReactComponent as Avatar } from "../../assets/guy-1.svg";
 
 export default function Home() {
@@ -42,10 +41,6 @@ export default function Home() {
 
           <NextSchedules />
         </S.GridWrapper>
-
-        <Link to="/agendar" className="link-agendar">
-          Agendar
-        </Link>
       </S.Wrapper>
 
       <S.Wrapper id="protocols">

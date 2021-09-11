@@ -16,28 +16,13 @@ export const Wrapper = styled.div`
     height: 100vh;
     max-height: 100vh;
 
-    padding-bottom: 13rem;
-
-    .link-agendar {
-      font-size: 3rem;
-      font-weight: 900;
-      line-height: 3rem;
-
-      margin-top: 5rem;
-      margin-left: auto;
-      padding: 2rem 4rem;
-      display: inline-block;
-      border-radius: 0.8rem;
-      text-decoration: none;
-
-      color: ${theme.colors.white};
-      background: ${theme.colors.primary};
-    }
+    padding-bottom: 13rem;    
   `}
 `;
 
 export const GridWrapper = styled.div`
   display: grid;
+  align-items: center;
   column-gap: 10rem;
   grid-template-columns: auto 1fr;
 `;
