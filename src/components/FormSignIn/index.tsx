@@ -70,7 +70,7 @@ export default function FormSignIn() {
         />
 
         <S.ButtonWrapper>
-          <Button type='submit'>Login</Button>
+          <Button className='bigButtonOrange' type='submit'>Fazer login</Button>
         </S.ButtonWrapper>
       </form>
 

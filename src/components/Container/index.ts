@@ -7,6 +7,11 @@ const Container = styled.div`
   margin-right: auto;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+
+  &.max-height {
+    max-height: 100vh;
+    overflow-y: hidden;
+  }
 `;
 
 export default Container;
