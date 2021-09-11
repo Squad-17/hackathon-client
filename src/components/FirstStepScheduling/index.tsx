@@ -45,6 +45,7 @@ export default function FirstStepScheduling({
   const [dateInformations, setDateInformations] = useState<AvailableDates>(
     {} as AvailableDates
   );
+  const [error, setError] = useState(false);
 
   async function getAvailableDates(localId: number) {
     api
@@ -56,6 +57,8 @@ export default function FirstStepScheduling({
   }
 
   useEffect(() => {
+    setSelectedDate('');
+    setDateInformations({} as AvailableDates);
     getAvailableDates(selectedLocalId);
   }, [selectedLocalId]);
 
@@ -92,7 +95,7 @@ export default function FirstStepScheduling({
 
   function goToConfirmation() {
     if (!localInformations.localId || !dateInformations.data) {
-      window.alert('Preencha os dados corretamente.');
+      setError(true);
 
       return;
     }
@@ -145,7 +148,7 @@ export default function FirstStepScheduling({
                         ? `date-button date-available ${
                             date.data === selectedDate && 'date-selected'
                           }`
-                        : `date-button ${
+                        : `date-button button-disabled ${
                             date.data === selectedDate && 'date-selected'
                           }`
                     }
@@ -162,6 +165,12 @@ export default function FirstStepScheduling({
       <S.ButtonWrapper>
         <Button onClick={goToConfirmation}>Próximo</Button>
       </S.ButtonWrapper>
+
+      {error && (
+        <S.Error>
+          <p>Selecione uma data</p>
+        </S.Error>
+      )}
     </S.Wrapper>
   );
 }

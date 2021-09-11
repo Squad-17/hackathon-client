@@ -24,6 +24,14 @@ export const Locals = styled.div`
     font-size: ${theme.font.sizes.medium};
     margin-top: ${theme.spacings.large};
 
+    h3 {
+      font-weight: lighter;
+    }
+
+    p {
+      color: #5b5b5b;
+    }
+
     .local {
       display: flex;
       justify-content: space-between;
@@ -43,7 +51,6 @@ export const Locals = styled.div`
       width: 1.5rem;
       height: 1.5rem;
       border-radius: 100%;
-      border: 0;
       background: #f0f0f0;
       cursor: pointer;
       border: solid 0.1rem ${theme.colors.secondary};
@@ -58,7 +65,15 @@ export const Locals = styled.div`
 export const Dates = styled.div`
   ${({ theme }) => css`
     font-size: ${theme.font.sizes.medium};
-    margin-top: ${theme.spacings.xlarge};
+    margin-top: 6rem;
+
+    h3 {
+      font-weight: lighter;
+    }
+
+    p {
+      color: #5b5b5b;
+    }
 
     .dates {
       display: flex;
@@ -73,32 +88,34 @@ export const Dates = styled.div`
     }
 
     .date-button {
-      width: 5rem;
-      height: 5rem;
+      width: 6rem;
+      height: 6rem;
       margin-top: ${theme.spacings.xsmall};
-      padding: 1rem;
       border-radius: 50%;
-      border: 0;
       color: ${theme.colors.primary};
       border: solid 0.1rem #c4c4c4;
-      background: #c4c4c4;
       font-size: ${theme.font.sizes.large};
       cursor: pointer;
-
-      &:hover {
-        border: solid 0.1rem ${theme.colors.secondary};
-      }
-    }
-
-    .date-available {
       background: transparent;
     }
 
-    .date-selected {
-      border: solid 0.3rem ${theme.colors.secondary};
+    .button-disabled {
+      background: #dfdfdf;
+      color: #c4c4c4;
+      pointer-events: none;
+    }
 
+    .date-available {
       &:hover {
+        border: solid 0.1rem ${theme.colors.secondary};
+      }
+
+      &.date-selected {
         border: solid 0.3rem ${theme.colors.secondary};
+
+        &:hover {
+          border: solid 0.3rem ${theme.colors.secondary};
+        }
       }
     }
   `}
@@ -109,5 +126,18 @@ export const ButtonWrapper = styled.div`
     display: flex;
     justify-content: center;
     margin-top: ${theme.spacings.large};
+  `}
+`;
+
+export const Error = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    justify-content: center;
+    margin-top: ${theme.spacings.medium};
+
+    p {
+      color: ${theme.colors.red};
+      font-size: ${theme.font.sizes.medium};
+    }
   `}
 `;

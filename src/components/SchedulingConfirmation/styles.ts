@@ -24,9 +24,14 @@ export const Local = styled.div`
   ${({ theme }) => css`
     margin-top: ${theme.spacings.medium};
 
+    h3 {
+      font-weight: lighter;
+    }
+
     p {
       display: block;
       margin-top: ${theme.spacings.xxsmall};
+      color: #5b5b5b;
     }
   `}
 `;
@@ -35,9 +40,14 @@ export const Date = styled.div`
   ${({ theme }) => css`
     margin-top: ${theme.spacings.medium};
 
+    h3 {
+      font-weight: lighter;
+    }
+
     p {
       display: block;
       margin-top: ${theme.spacings.xxsmall};
+      color: #5b5b5b;
     }
   `}
 `;
