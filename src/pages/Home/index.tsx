@@ -7,8 +7,8 @@ import NextSchedules from "../../components/NextSchedulesList";
 import api from "../../services/api";
 import * as S from "./styles";
 
-import { useEffect, useState } from "react";
-import avatar from '../../assets/avatars/avatar3.svg'; 
+import { useEffect, useState } from "react"; 
+import ProfileCard from "../../components/ProfileCard";
 
 export default function Home() {
   const [pageIndex, setPageIndex] = useState(1);
@@ -44,14 +44,7 @@ export default function Home() {
         <S.Title>Dashboard</S.Title>
 
         <S.GridWrapper>
-          <S.ProfileWrapper>
-            {userInfo.avatar && <img src={avatar} className="profile-avatar" onClick={() => setAvatarModalActive(true)} alt="" />}
-
-            <S.ProfileTag className="blue"> #ProudToBeOrange</S.ProfileTag>
-            <S.ProfileTag className="orange">{userInfo.nome}</S.ProfileTag>
-
-            {userInfo.cargo && <S.ProfileTag className="orange">{userInfo.cargo}</S.ProfileTag>}
-          </S.ProfileWrapper>
+          <ProfileCard userInfo={userInfo} avatarClick={() => setAvatarModalActive(true)}/>
 
           <NextSchedules />
         </S.GridWrapper>
