@@ -53,7 +53,9 @@ export default function SchedulingConfirmation({
       </S.Date>
 
       <S.ButtonWrapper>
-        <Button onClick={() => setCurrentStep((s) => --s)}>Cancelar</Button>
+        <Button className='outlined' onClick={() => setCurrentStep((s) => --s)}>
+          Cancelar
+        </Button>
         <Button onClick={handleSubmitScheduling}>Confirmar</Button>
       </S.ButtonWrapper>
     </S.Wrapper>
