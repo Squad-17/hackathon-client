@@ -25,7 +25,7 @@ export const Wrapper = styled.div`
   .avatars-list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 2.5rem;
+    gap: 2rem;
     list-style: none;
 
     svg {
@@ -38,6 +38,7 @@ export const Wrapper = styled.div`
 
 export const ButtonWrapper = styled.div`
   display: flex;
+  column-gap: 3rem;
   justify-content: space-between;
 
   margin-top: 3rem;
@@ -46,12 +47,6 @@ export const ButtonWrapper = styled.div`
     font-weight: bold;
     font-size: 3.4rem;
     line-height: 3.4rem;
-    padding: 2.5rem 9rem;
-  }
-
-  button.outlined {
-    color: #404099;
-    background: none;
-    border: 2px solid #404099;
-  }
+    padding: 3rem;
+  } 
 `;
