@@ -8,6 +8,11 @@ export const Wrapper = styled.div`
     border: solid 0.1rem ${theme.colors.secondary};
     border-radius: 1rem;
     padding: ${theme.spacings.xsmall};
+
+    @media (max-width: 550px) {
+      margin-bottom: ${theme.spacings.medium};
+      height: auto;
+    }
   `}
 `;
 
@@ -29,7 +34,7 @@ export const Locals = styled.div`
     }
 
     p {
-      color: #5b5b5b;
+      color: #5a6575;
     }
 
     .local {
@@ -47,9 +52,13 @@ export const Locals = styled.div`
       margin-left: ${theme.spacings.xsmall};
     }
 
+    .address {
+      margin-left: ${theme.spacings.small};
+      word-break: break-word;
+    }
+
     .button {
-      width: 1.5rem;
-      height: 1.5rem;
+      padding: 0.6rem;
       border-radius: 100%;
       background: #f0f0f0;
       cursor: pointer;
@@ -72,16 +81,21 @@ export const Dates = styled.div`
     }
 
     p {
-      color: #5b5b5b;
+      color: #5a6575;
     }
 
     .dates {
       display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+
+    .date {
       margin-top: ${theme.spacings.xsmall};
     }
 
     .date:not(:first-child) {
-      margin-left: ${theme.spacings.small};
+      margin-left: ${theme.spacings.medium};
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -125,7 +139,7 @@ export const ButtonWrapper = styled.div`
   ${({ theme }) => css`
     display: flex;
     justify-content: center;
-    margin-top: ${theme.spacings.large};
+    margin-top: ${theme.spacings.xlarge};
   `}
 `;
 

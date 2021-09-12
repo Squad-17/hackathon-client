@@ -2,6 +2,9 @@ import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     width: 100%;
     height: 52.5rem;
     background: #fbfbfb;
@@ -9,28 +12,17 @@ export const Wrapper = styled.div`
     border-radius: 1rem;
     padding: ${theme.spacings.xsmall};
     font-size: ${theme.font.sizes.medium};
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 
     svg {
-      margin-top: ${theme.spacings.medium};
       max-width: 100%;
-    }
-
-    a {
-      margin-top: ${theme.spacings.xlarge};
-      color: ${theme.colors.secondary};
-      font-size: ${theme.font.sizes.large};
-      text-align: center;
-      text-decoration: underline;
-      cursor: pointer;
+      margin-top: ${theme.spacings.medium};
     }
   `}
 `;
 
 export const Title = styled.h2`
   ${({ theme }) => css`
+    margin-top: ${theme.spacings.medium};
     color: ${theme.colors.secondary};
     font-size: ${theme.font.sizes.xlarge};
     text-align: center;
@@ -43,12 +35,8 @@ export const ButtonWrapper = styled.div`
     justify-content: center;
     margin-top: ${theme.spacings.large};
 
-    a {
-      text-decoration: none;
-    }
-
-    @media (max-width: 550px) {
-      margin-bottom: ${theme.spacings.medium};
+    button {
+      padding: 2.5rem 5rem;
     }
   `}
 `;

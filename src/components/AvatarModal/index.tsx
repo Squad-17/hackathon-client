@@ -3,15 +3,15 @@ import * as S from "./style";
 import api from "../../services/api";
 import Button from "../Button";
 
-import { ReactComponent as avatar1 } from "../../assets/avatars/avatar1.svg";
-import { ReactComponent as avatar2 } from "../../assets/avatars/avatar2.svg";
-import { ReactComponent as avatar3 } from "../../assets/avatars/avatar3.svg";
-import { ReactComponent as avatar4 } from "../../assets/avatars/avatar4.svg";
-import { ReactComponent as avatar5 } from "../../assets/avatars/avatar5.svg";
-import { ReactComponent as avatar6 } from "../../assets/avatars/avatar6.svg";
-import { ReactComponent as avatar7 } from "../../assets/avatars/avatar7.svg";
-import { ReactComponent as avatar8 } from "../../assets/avatars/avatar8.svg";
-import { ReactComponent as avatar9 } from "../../assets/avatars/avatar9.svg";
+import avatar1 from "../../assets/avatars/avatar1.svg";
+import avatar2 from "../../assets/avatars/avatar2.svg";
+import avatar3 from "../../assets/avatars/avatar3.svg";
+import avatar4 from "../../assets/avatars/avatar4.svg";
+import avatar5 from "../../assets/avatars/avatar5.svg";
+import avatar6 from "../../assets/avatars/avatar6.svg";
+import avatar7 from "../../assets/avatars/avatar7.svg";
+import avatar8 from "../../assets/avatars/avatar8.svg";
+import avatar9 from "../../assets/avatars/avatar9.svg";
 import { useState } from "react";
 
 type AvatarModalProps = {
@@ -25,8 +25,6 @@ export default function AvatarModal({ active, userAvatar, onClose }: AvatarModal
   const [selectedAvatar, setSelectedAvatar] = useState(userAvatar);
 
   async function saveAvatar() {
-    console.log(selectedAvatar);
-    
     api
       .patch(`funcionario/avatar?avatar=${selectedAvatar}`)
       .then(() => {
@@ -39,10 +37,10 @@ export default function AvatarModal({ active, userAvatar, onClose }: AvatarModal
     <S.Mask className={active ? "active" : ""}>
       <S.Wrapper>
         <ul className="avatars-list">
-          {avatars.map((Avatar, index) => {
+          {avatars.map((avatar, index) => {
             return (
               <li key={index}>
-                <Avatar onClick={() => setSelectedAvatar("avatar" + (index + 1))} />
+                <img src={avatar} onClick={() => setSelectedAvatar("avatar" + (index + 1))} alt=""/>
               </li>
             );
           })}

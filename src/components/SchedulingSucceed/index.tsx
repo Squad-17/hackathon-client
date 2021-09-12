@@ -4,7 +4,15 @@ import { ReactComponent as ComputerGuy } from '../../assets/computer-guy.svg';
 
 import * as S from './styles';
 
-export default function SchedulingSucceed() {
+import { Informations } from '../../pages/Scheduling';
+
+type SchedulingSucceedProps = {
+  informations: Informations;
+};
+
+export default function SchedulingSucceed({
+  informations,
+}: SchedulingSucceedProps) {
   return (
     <>
       <S.Wrapper>
@@ -15,7 +23,14 @@ export default function SchedulingSucceed() {
 
         <ComputerGuy />
 
-        <S.CancelScheduling>Cancelar agendamento</S.CancelScheduling>
+        <Link
+          to={{
+            pathname: '/cancelar-agendamento',
+            state: { localId: informations.localId, data: informations.data },
+          }}
+        >
+          Cancelar agendamento
+        </Link>
       </S.Wrapper>
 
       <S.ButtonWrapper>

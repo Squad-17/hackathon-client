@@ -136,12 +136,13 @@ export default function FirstStepScheduling({
       <S.Dates>
         <h3>Data</h3>
 
-        <div className='dates'>
+        <ul className='dates'>
           {availableDates.length > 0 &&
             availableDates.map((date) => {
               return (
-                <div key={date.data} className='date'>
+                <li key={date.data} className='date'>
                   <p>{date.diaDaSemana}</p>
+
                   <button
                     className={
                       date.disponivel
@@ -156,10 +157,10 @@ export default function FirstStepScheduling({
                   >
                     {date.diaDoMes}
                   </button>
-                </div>
+                </li>
               );
             })}
-        </div>
+        </ul>
       </S.Dates>
 
       <S.ButtonWrapper>

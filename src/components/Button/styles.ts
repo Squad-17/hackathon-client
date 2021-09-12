@@ -25,9 +25,5 @@ export const Wrapper = styled.button`
       color: ${theme.colors.secondary};
       border: 2px solid ${theme.colors.secondary};
     }
-
-    &.big-button {
-      width: 100%;
-    }
   `}
 `;

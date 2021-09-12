@@ -93,7 +93,7 @@ export default function FormSignUp() {
         />
 
         <S.ButtonWrapper>
-          <Button type="submit" onClick={handleSubmit}>
+          <Button type="submit">
             Cadastrar
           </Button>
         </S.ButtonWrapper>

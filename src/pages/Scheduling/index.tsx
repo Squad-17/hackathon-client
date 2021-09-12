@@ -47,7 +47,9 @@ export default function Scheduling() {
             />
           )}
 
-          {currentStep === 3 && <SchedulingSucceed />}
+          {currentStep === 3 && (
+            <SchedulingSucceed informations={informations} />
+          )}
         </S.SchedulingWrapper>
       </S.Wrapper>
     </Container>
