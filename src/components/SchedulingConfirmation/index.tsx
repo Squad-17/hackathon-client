@@ -28,8 +28,7 @@ export default function SchedulingConfirmation({
         data: informations.data,
         localId: informations.localId,
       })
-      .then((response) => {
-        console.log(response);
+      .then(() => {
         setCurrentStep((s) => ++s);
       })
       .catch((error) => console.log(error));
