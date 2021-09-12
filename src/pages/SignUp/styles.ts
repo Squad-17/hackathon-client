@@ -3,12 +3,11 @@ import styled, { css } from 'styled-components';
 export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
-  padding-top: 10rem;
 
   @media (max-width: 800px) {
     padding-top: 4rem;
-
-    svg {
+    
+    img, svg {
       display: none;
     }
   }

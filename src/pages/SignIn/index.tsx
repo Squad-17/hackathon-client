@@ -3,7 +3,7 @@ import { useHistory } from 'react-router';
 import Container from '../../components/Container';
 import FormSignIn from '../../components/FormSignIn';
 import Nav from '../../components/Nav';
-import { ReactComponent as Puzzle } from '../../assets/computer-guy.svg';
+import Puzzle from '../../assets/puzzle.svg';
 
 import * as S from './styles';
 import Button from '../../components/Button';
@@ -20,10 +20,10 @@ export default function SignIn() {
     <Container>
       <Nav />
 
-      <LinkViewPages name="<< Home FCamara"
-        href='https://www.fcamara.com.br/' target='_blank' rel='noreferrer'/>
       <S.Wrapper>
-        <Puzzle />
+        <LinkViewPages name="<< Home FCamara"
+        href='https://www.fcamara.com.br/' target='_blank' rel='noreferrer'/>
+        <img src={Puzzle} />
 
         <S.FormWrapper>
           <S.Heading>Área de login</S.Heading>

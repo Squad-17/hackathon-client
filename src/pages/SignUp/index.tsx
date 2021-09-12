@@ -3,9 +3,10 @@ import { useHistory } from 'react-router';
 import Container from '../../components/Container';
 import FormSignUp from '../../components/FormSignUp';
 import Nav from '../../components/Nav';
-import { ReactComponent as ComputerGuy } from '../../assets/computer-guy.svg';
+import Puzzle from '../../assets/puzzle.svg';
 
 import * as S from './styles';
+import LinkViewPages from '../../components/LinkViewPages';
 
 export default function SignUp() {
   const history = useHistory();
@@ -18,8 +19,9 @@ export default function SignUp() {
     <Container>
       <Nav />
 
-      <S.Wrapper>
-        <ComputerGuy />
+      <S.Wrapper> 
+        <LinkViewPages name="<< Área de login" onClick={goToSignIn}/>
+        <img src={Puzzle} />
 
         <S.FormWrapper>
           <S.Heading>Cadastre-se</S.Heading>

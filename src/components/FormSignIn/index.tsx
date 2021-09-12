@@ -5,10 +5,13 @@ import { useAuth } from '../../hooks/auth';
 import { FieldErrors, signInValidate } from '../../utils/validations';
 import TextField from '../TextField';
 import Button from '../Button';
+import { ReactComponent as EyeOf } from '../../assets/eye-off.svg';
+import { ReactComponent as Eye } from '../../assets/eye.svg';
 
 import * as S from './styles';
 
 export default function FormSignIn() {
+  const [visible, setVisible] = useState(false);
   const [formError, setFormError] = useState('');
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
   const [values, setValues] = useState({
@@ -48,6 +51,10 @@ export default function FormSignIn() {
     setValues((s) => ({ ...s, [field]: value }));
   }
 
+  function handleVisible(){
+    visible === true ? setVisible(false) : setVisible(true);
+  }
+
   return (
     <S.Wrapper>
       <form onSubmit={handleSubmit}>
@@ -59,16 +66,21 @@ export default function FormSignIn() {
           error={fieldErrors.email}
           onInputChange={(v) => handleInput('email', v)}
         />
-
-        <TextField
-          label='Senha'
-          type='password'
-          name='password'
-          placeholder='&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;'
-          error={fieldErrors.password}
-          onInputChange={(v) => handleInput('password', v)}
-        />
-
+        <div className="container-input">
+          <TextField
+            label='Senha'
+            type='password'
+            name='password'
+            placeholder='&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;'
+            error={fieldErrors.password}
+            onInputChange={(v) => handleInput('password', v)}
+          /> 
+          {!visible ? (
+            <EyeOf className="icon-eye" onClick={handleVisible}/>
+          ): (
+            <Eye className="icon-eye" onClick={handleVisible}/>
+          )}     
+        </div>
         <S.ButtonWrapper>
           <Button className='bigButtonOrange' type='submit'>Fazer login</Button>
         </S.ButtonWrapper>
