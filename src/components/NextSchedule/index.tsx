@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import * as S from "./styles";
 
 type Local = {
@@ -27,8 +28,15 @@ export default function NextSchedule({ schedule }: NextScheduleProps) {
         <p>{schedule.local.cidade}</p>
         <p>{schedule.local.endereco}</p>
       </S.LocalWrapper>
-
-      <S.Cancel>Cancelar</S.Cancel>
+      
+      <Link
+          to={{
+            pathname: '/cancelar-agendamento',
+            state: { localId: schedule.local.id, data: schedule.data },
+          }}
+        >
+          Cancelar
+        </Link>
     </S.Wrapper>
   );
 }

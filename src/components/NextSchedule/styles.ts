@@ -14,6 +14,17 @@ export const Wrapper = styled.div`
   &:not(:last-of-type) {
     margin-bottom: 1rem;
   }
+
+  a {
+    color: #36357e;
+    font-weight: bold;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+
+    border: none;
+    cursor: pointer;
+    text-decoration-line: underline;
+  }
 `;
 
 export const Day = styled.div`
@@ -42,15 +53,4 @@ export const LocalWrapper = styled.div`
       margin-bottom: 0.7rem;
     }
   }
-`;
-
-export const Cancel = styled.button`
-  color: #36357e;
-  font-weight: bold;
-  font-size: 1.6rem;
-  line-height: 1.6rem;
-
-  border: none;
-  cursor: pointer;
-  text-decoration-line: underline;
 `;
