@@ -12,6 +12,7 @@ import * as S from './styles';
 
 export default function FormSignIn() {
   const [visible, setVisible] = useState(false);
+  const [typepassword, setTypePassword] = useState('password');
   const [formError, setFormError] = useState('');
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
   const [values, setValues] = useState({
@@ -52,7 +53,13 @@ export default function FormSignIn() {
   }
 
   function handleVisible(){
-    visible === true ? setVisible(false) : setVisible(true);
+    if (visible === true) {
+      setVisible(false);
+      setTypePassword('password');
+    } else {
+      setVisible(true);
+      setTypePassword('text');
+    } 
   }
 
   return (
@@ -67,9 +74,9 @@ export default function FormSignIn() {
           onInputChange={(v) => handleInput('email', v)}
         />
         <div className="container-input">
-          <TextField
+          <TextField id="test"
             label='Senha'
-            type='password'
+            type= {typepassword}
             name='password'
             placeholder='&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;'
             error={fieldErrors.password}
