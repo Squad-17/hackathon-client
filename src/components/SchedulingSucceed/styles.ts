@@ -15,6 +15,16 @@ export const Wrapper = styled.div`
 
     svg {
       margin-top: ${theme.spacings.medium};
+      max-width: 100%;
+    }
+
+    a {
+      margin-top: ${theme.spacings.xlarge};
+      color: ${theme.colors.secondary};
+      font-size: ${theme.font.sizes.large};
+      text-align: center;
+      text-decoration: underline;
+      cursor: pointer;
     }
   `}
 `;
@@ -27,17 +37,6 @@ export const Title = styled.h2`
   `}
 `;
 
-export const CancelScheduling = styled.a`
-  ${({ theme }) => css`
-    margin-top: ${theme.spacings.xlarge};
-    color: ${theme.colors.secondary};
-    font-size: ${theme.font.sizes.large};
-    text-align: center;
-    text-decoration: underline;
-    cursor: pointer;
-  `}
-`;
-
 export const ButtonWrapper = styled.div`
   ${({ theme }) => css`
     display: flex;
@@ -46,6 +45,10 @@ export const ButtonWrapper = styled.div`
 
     a {
       text-decoration: none;
+    }
+
+    @media (max-width: 550px) {
+      margin-bottom: ${theme.spacings.medium};
     }
   `}
 `;
