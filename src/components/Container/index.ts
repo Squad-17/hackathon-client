@@ -10,7 +10,6 @@ const Container = styled.div`
 
   &.max-height {
     max-height: 100vh;
-    overflow-y: hidden;
   }
 `;
 

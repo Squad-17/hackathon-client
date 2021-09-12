@@ -37,7 +37,7 @@ export default function FormSignIn() {
 
     signIn({ email, senha })
       .then(() => {
-        history.push('/agendar');
+        history.push('/');
       })
       .catch((error) => {
         setFormError(error.response.data.erro);
@@ -70,7 +70,7 @@ export default function FormSignIn() {
         />
 
         <S.ButtonWrapper>
-          <Button className='bigButtonOrange' type='submit'>Fazer login</Button>
+          <Button type='submit'>Fazer login</Button>
         </S.ButtonWrapper>
       </form>
 
