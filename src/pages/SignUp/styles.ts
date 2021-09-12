@@ -1,8 +1,11 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
   display: flex;
+  align-items: center;
   justify-content: center;
+
+  height: 80vh;
 
   @media (max-width: 800px) {
     padding-top: 4rem;
@@ -15,9 +18,10 @@ export const Wrapper = styled.div`
 
 export const Heading = styled.h2`
   ${({ theme }) => css`
-    margin-bottom: ${theme.spacings.large};
+    font-weight: 900;
+    font-size: 3.6rem;
     color: ${theme.colors.primary};
-    font-size: ${theme.font.sizes.xlarge};
+    margin-bottom: ${theme.spacings.large};
   `}
 `;
 
@@ -40,7 +44,11 @@ export const CallSignIn = styled.div`
   ${({ theme }) => css`
     display: flex;
     justify-content: center;
-    font-size: ${theme.font.sizes.medium};
+
+    color: #333333;
+    margin-top: 5rem;
+    font-weight: 500;
+    font-size: 2rem;
 
     span {
       color: ${theme.colors.secondary};

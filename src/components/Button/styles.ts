@@ -1,17 +1,23 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 export const Wrapper = styled.button`
   ${({ theme }) => css`
-    width: 15rem;
+    width: 100%;
     height: 4rem;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    font-size: 3.rem;
+    font-weight: 900;
+    line-height: 3rem;
+
     border: 0;
+    padding: 3rem;
     cursor: pointer;
-    border-radius: 0.4rem;
-    background: ${theme.colors.primary};
+    border-radius: 0.8rem;
     color: ${theme.colors.white};
+    background: ${theme.colors.primary};
     font-size: ${theme.font.sizes.medium};
 
     &.outlined {
@@ -19,18 +25,5 @@ export const Wrapper = styled.button`
       color: ${theme.colors.secondary};
       border: 2px solid ${theme.colors.secondary};
     }
-
-    &.bigButtonWhite {
-      background-color: ${theme.colors.white};
-      color: ${theme.colors.secondary};
-      border: 1px solid ${theme.colors.secondary};
-      width: 100%;
-      margin-bottom: 1rem;
-    }
-
-    &.bigButtonOrange {
-      width: 100%;
-    }
-
   `}
 `;

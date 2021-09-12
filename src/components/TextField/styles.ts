@@ -1,14 +1,18 @@
 import styled, { css } from 'styled-components';
 
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div`
+  margin-bottom: 2rem;
+`;
 
 export const InputWrapper = styled.div``;
 
 export const Label = styled.label`
   ${({ theme }) => css`
-    color: ${theme.colors.secondary};
-    font-size: ${theme.font.sizes.large};
+    display: block;
+    font-size: 2.5rem;
     font-weight: 900;
+    margin-bottom: 5px;
+    color: ${theme.colors.secondary};
   `}
 `;
 
@@ -16,12 +20,12 @@ export const Input = styled.input`
   ${({ theme }) => css`
     width: 100%;
     height: 4rem;
+    padding: 3rem 2rem;
+    font-size: 2.6rem;
     margin: ${theme.spacings.xxsmall} 0;
-    font-size: ${theme.font.sizes.medium};
-    padding: ${theme.spacings.xxsmall};
     border: solid 0.1rem ${theme.colors.secondary};
     outline: none;
-    border-radius: 0.4rem;
+    border-radius: 0.7rem;
   `}
 `;
 

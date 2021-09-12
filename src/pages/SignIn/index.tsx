@@ -30,7 +30,7 @@ export default function SignIn() {
 
           <FormSignIn />
 
-          <Button onClick={goToSignUp} className='bigButtonWhite'>Criar nova conta</Button>
+          <Button onClick={goToSignUp} className='outlined'>Criar nova conta</Button>
                 
           <S.CallSignUp>
             <p>
