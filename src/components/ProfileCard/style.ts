@@ -10,9 +10,23 @@ export const ProfileWrapper = styled.div`
   border-radius: 21px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
 
+  .profile-avatar-wrapper {
+    position: relative;
+    margin-bottom: 5rem;
+
+    .camera-icon {
+      width: 30px;
+      height: 30px;
+      
+      right: 5px;
+      bottom: 5px;
+      position: absolute;
+      pointer-events: none;      
+    }
+  }
+
   .profile-avatar {
     cursor: pointer;
-    margin-bottom: 5rem;
   }
 `;
 
