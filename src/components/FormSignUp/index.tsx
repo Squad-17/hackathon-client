@@ -26,7 +26,12 @@ export default function FormSignUp() {
 
     setFormError('');
 
-    const errors = signUpValidate({ name: values.name, email: values.email, password: values.password, confirmPassword: values.confirmPassword });
+    const errors = signUpValidate({
+      name: values.name,
+      email: values.email,
+      password: values.password,
+      confirmPassword: values.confirmPassword,
+    });
 
     if (Object.keys(errors).length) {
       setFieldErrors(errors);
@@ -40,7 +45,7 @@ export default function FormSignUp() {
 
     signUp({ nome, email, cargo, senha })
       .then(() => {
-        history.push("/");
+        history.push('/');
       })
       .catch((error) => {
         setFormError(error.response.data.erro);
@@ -55,47 +60,53 @@ export default function FormSignUp() {
     <S.Wrapper>
       <form onSubmit={handleSubmit}>
         <TextField
-          label="Nome"
-          type="text"
-          name="name"
-          placeholder="Nome completo"
+          label='Nome'
+          type='text'
+          name='name'
+          placeholder='Nome completo'
           error={fieldErrors.name}
-          onInputChange={(v) => handleInput("name", v)}
+          onInputChange={(v) => handleInput('name', v)}
         />
 
         <TextField
-          label="Email"
-          type="email"
-          name="email"
-          placeholder="email@email.com"
+          label='Email'
+          type='email'
+          name='email'
+          placeholder='email@email.com'
           error={fieldErrors.email}
-          onInputChange={(v) => handleInput("email", v)}
+          onInputChange={(v) => handleInput('email', v)}
         />
 
-        <TextField label="Cargo" type="text" name="occupation" placeholder="Dev. Front End" onInputChange={(v) => handleInput("occupation", v)} />
+        <TextField
+          label='Cargo'
+          type='text'
+          name='occupation'
+          placeholder='Dev. Front End'
+          onInputChange={(v) => handleInput('occupation', v)}
+        />
 
         <TextField
-          label="Senha"
-          name="password"
-          placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"
-          type="password"
+          label='Senha'
+          name='password'
+          placeholder='&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;'
+          type='password'
           error={fieldErrors.password}
-          onInputChange={(v) => handleInput("password", v)}
+          maxLength={30}
+          onInputChange={(v) => handleInput('password', v)}
         />
 
         <TextField
-          label="Confirmar Senha"
-          name="confirmPassword"
-          placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"
-          type="password"
+          label='Confirmar Senha'
+          name='confirmPassword'
+          placeholder='&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;'
+          type='password'
+          maxLength={30}
           error={fieldErrors.confirmPassword}
-          onInputChange={(v) => handleInput("confirmPassword", v)}
+          onInputChange={(v) => handleInput('confirmPassword', v)}
         />
 
         <S.ButtonWrapper>
-          <Button type="submit">
-            Cadastrar
-          </Button>
+          <Button type='submit'>Cadastrar</Button>
         </S.ButtonWrapper>
       </form>
 

@@ -1,16 +1,19 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: center;
+  padding-top: 4rem;
+  padding-bottom: 5rem;
+  width: 100%;
 
-  height: 80vh;
+  img {
+    width: 50%;
+  }
 
   @media (max-width: 800px) {
-    padding-top: 4rem;
-    
-    img, svg {
+    justify-content: center;
+
+    img {
       display: none;
     }
   }
@@ -19,7 +22,7 @@ export const Wrapper = styled.div`
 export const Heading = styled.h2`
   ${({ theme }) => css`
     font-weight: 900;
-    font-size: 3.6rem;
+    font-size: 3.2rem;
     color: ${theme.colors.primary};
     margin-bottom: ${theme.spacings.large};
   `}
@@ -44,16 +47,15 @@ export const CallSignIn = styled.div`
   ${({ theme }) => css`
     display: flex;
     justify-content: center;
-
     color: #333333;
     margin-top: 5rem;
     font-weight: 500;
     font-size: 2rem;
 
-    span {
+    a {
       color: ${theme.colors.secondary};
       cursor: pointer;
-      font-weight: 900;
+      text-decoration: none;
     }
   `}
 `;

@@ -1,43 +1,33 @@
-import { useHistory } from 'react-router';
-
 import Container from '../../components/Container';
 import FormSignIn from '../../components/FormSignIn';
 import Nav from '../../components/Nav';
 import Puzzle from '../../assets/puzzle.svg';
+import Button from '../../components/Button';
 
 import * as S from './styles';
-import Button from '../../components/Button';
-import LinkViewPages from '../../components/LinkViewPages';
+import { Link } from 'react-router-dom';
 
 export default function SignIn() {
-  const history = useHistory();
-
-  function goToSignUp() {
-    history.push('/cadastrar');
-  }
-
   return (
     <Container>
       <Nav />
 
       <S.Wrapper>
-        <LinkViewPages name="<< Home FCamara"
-        href='https://www.fcamara.com.br/' target='_blank' rel='noreferrer'/>
-        <img src={Puzzle} />
+        <img src={Puzzle} alt='Puzzle' />
 
         <S.FormWrapper>
           <S.Heading>Área de login</S.Heading>
 
           <FormSignIn />
 
-          <Button onClick={goToSignUp} className='outlined'>Criar nova conta</Button>
-                
-          <S.CallSignUp>
+          <Link to='/cadastrar'>
+            <Button className='outlined'>Criar nova conta</Button>
+          </Link>
+          <S.ForgotPassword>
             <p>
-              Esqueceu sua senha?{' '}
-              <span >Alterar senha</span>
+              Esqueceu sua senha? <span>Alterar senha</span>
             </p>
-          </S.CallSignUp>
+          </S.ForgotPassword>
         </S.FormWrapper>
       </S.Wrapper>
     </Container>
