@@ -13,6 +13,10 @@ export const Mask = styled.div`
   &.active {
     display: grid;
   }
+
+  @media(max-width: 736px) {
+    padding: 0 1rem;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -23,21 +27,25 @@ export const Wrapper = styled.div`
     border: 1px solid #6B6B6B;
 
   .avatars-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
     gap: 2rem;
+    display: grid;
     list-style: none;
+    grid-template-columns: 1fr 1fr 1fr;
 
     img {
-      width: 150px;
-      height: 160px;
+      width: 100%;
       cursor pointer;
+      max-width: 150px;
       padding-bottom: 10px;
 
       &.selected {
         border-bottom: 1px solid red;
       }
     }
+  }
+
+  @media(max-width: 736px) {
+    padding: 2.5rem 4rem;
   }
 `;
 
