@@ -4,9 +4,12 @@ export const Title = styled.h1`
   ${({ theme }) => css`
     font-weight: 900;
     font-size: 3.6rem;
-    line-height: 3.6rem;
     margin-bottom: 5rem;
     color: ${theme.colors.primary};
+
+    @media (max-width: 736px) {
+      margin-bottom: 3rem;
+    }
   `}
 `;
 
@@ -15,16 +18,23 @@ export const Wrapper = styled.div`
     display: grid;
     height: 100vh;
     max-height: 100vh;
+    padding-bottom: 13rem;
 
-    padding-bottom: 13rem;    
+    @media (max-width: 950px) {
+      padding: 0;
+      height: auto;
+      display: block;
+      max-height: unset;
+    }    
   `}
 `;
 
 export const GridWrapper = styled.div`
   display: grid;
   align-items: center;
-  column-gap: 10rem;
-  grid-template-columns: auto 1fr;
+  column-gap: 5vw;
+  row-gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 `;
 
 export const PageScrollCircleList = styled.ul`
@@ -34,9 +44,12 @@ export const PageScrollCircleList = styled.ul`
   flex-direction: column;
 
   position: fixed;
-  right: 15rem;
+  right: 5rem;
   top: 50%;
-  // transform: translateY(-50%);
+
+  @media (max-width: 1400px) {
+    display: none;
+  }
 `;
 
 export const PageScrollCircle = styled.li`

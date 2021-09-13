@@ -34,7 +34,7 @@ export default function ProfileCard({ userInfo, avatarClick }: ProfileCardProps)
         <img src={cameraIcon} className="camera-icon" alt="" />
       </div>
 
-      <S.ProfileTag className="blue"> #ProudToBeOrange</S.ProfileTag>
+      <S.ProfileTag className="blue hide-mobile"> #ProudToBeOrange</S.ProfileTag>
       <S.ProfileTag className="orange">{userInfo.nome}</S.ProfileTag>
 
       {userInfo.cargo && <S.ProfileTag className="orange">{userInfo.cargo}</S.ProfileTag>}
