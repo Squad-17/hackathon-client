@@ -1,5 +1,6 @@
 import * as S from "./style";
 
+import semAvatar from "../../assets/avatars/avatar0.svg";
 import avatar1 from "../../assets/avatars/avatar1.svg";
 import avatar2 from "../../assets/avatars/avatar2.svg";
 import avatar3 from "../../assets/avatars/avatar3.svg";
@@ -22,11 +23,11 @@ type ProfileCardProps = {
 };
 
 export default function ProfileCard({ userInfo, avatarClick }: ProfileCardProps) {  
-  const avatars = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6, avatar7, avatar8, avatar9];
+  const avatars = [semAvatar, avatar1, avatar2, avatar3, avatar4, avatar5, avatar6, avatar7, avatar8, avatar9];
 
   return (
     <S.ProfileWrapper>
-      {userInfo.avatar && <img src={avatars[userInfo.avatar - 1]} className="profile-avatar" onClick={avatarClick} alt="" />}
+      <img src={avatars[userInfo.avatar]} className="profile-avatar" onClick={avatarClick} alt="" />
 
       <S.ProfileTag className="blue"> #ProudToBeOrange</S.ProfileTag>
       <S.ProfileTag className="orange">{userInfo.nome}</S.ProfileTag>
