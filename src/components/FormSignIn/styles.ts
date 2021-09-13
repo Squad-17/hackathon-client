@@ -1,16 +1,18 @@
 import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div`
-  
   .container-input {
-      position: relative;
+    position: relative;
+    width: 100%;
   }
+
   .icon-eye {
-      position: absolute;
-      z-index: 2;
-      right: 1rem;
-      top: 3.5rem;
-      cursor: pointer;
+    position: absolute;
+    z-index: 2;
+    right: 1rem;
+    top: 5rem;
+    cursor: pointer;
+    background: #fefefe;
   }
 `;
 

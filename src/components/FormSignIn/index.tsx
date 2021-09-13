@@ -52,14 +52,14 @@ export default function FormSignIn() {
     setValues((s) => ({ ...s, [field]: value }));
   }
 
-  function handleVisible(){
+  function handleVisible() {
     if (visible === true) {
       setVisible(false);
       setTypePassword('password');
     } else {
       setVisible(true);
       setTypePassword('text');
-    } 
+    }
   }
 
   return (
@@ -73,21 +73,25 @@ export default function FormSignIn() {
           error={fieldErrors.email}
           onInputChange={(v) => handleInput('email', v)}
         />
-        <div className="container-input">
-          <TextField id="test"
+
+        <div className='container-input'>
+          <TextField
+            id='test'
             label='Senha'
-            type= {typepassword}
+            type={typepassword}
             name='password'
             placeholder='&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;'
             error={fieldErrors.password}
             onInputChange={(v) => handleInput('password', v)}
-          /> 
+            maxLength={30}
+          />
           {!visible ? (
-            <EyeOf className="icon-eye" onClick={handleVisible}/>
-          ): (
-            <Eye className="icon-eye" onClick={handleVisible}/>
-          )}     
+            <EyeOf className='icon-eye' onClick={handleVisible} />
+          ) : (
+            <Eye className='icon-eye' onClick={handleVisible} />
+          )}
         </div>
+
         <S.ButtonWrapper>
           <Button type='submit'>Fazer login</Button>
         </S.ButtonWrapper>
