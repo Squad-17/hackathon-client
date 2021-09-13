@@ -28,10 +28,15 @@ export const Wrapper = styled.div`
     gap: 2rem;
     list-style: none;
 
-    svg {
+    img {
       width: 150px;
-      height: 150px;
+      height: 160px;
       cursor pointer;
+      padding-bottom: 10px;
+
+      &.selected {
+        border-bottom: 1px solid red;
+      }
     }
   }
 `;
@@ -48,5 +53,5 @@ export const ButtonWrapper = styled.div`
     font-size: 3.4rem;
     line-height: 3.4rem;
     padding: 3rem;
-  } 
+  }
 `;

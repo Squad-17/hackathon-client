@@ -13,7 +13,7 @@ import ProfileCard from "../../components/ProfileCard";
 export default function Home() {
   const [pageIndex, setPageIndex] = useState(1);
   const [avatarModalActive, setAvatarModalActive] = useState(false);
-  const [userInfo, setUserInfo] = useState({ nome: "", cargo: "", avatar: "" });
+  const [userInfo, setUserInfo] = useState({ nome: "", cargo: "", avatar: 0 });
 
   function handleClick(index: number, target: string) {
     setPageIndex(index);
@@ -22,11 +22,20 @@ export default function Home() {
     element?.scrollIntoView({ behavior: "smooth" });
   }
 
-  useEffect(() => {
+  function getUserInfo() {
     api
       .get("funcionario/info")
       .then((data) => setUserInfo(data.data))
       .catch((error) => console.error(error));
+  }
+
+  function OnSave() {
+    getUserInfo();
+    setAvatarModalActive(false);
+  }
+
+  useEffect(() => {
+    getUserInfo();
   }, []);
 
   return (
@@ -36,7 +45,7 @@ export default function Home() {
         <S.PageScrollCircle className={pageIndex === 2 ? "active" : ""} onClick={() => handleClick(2, "protocols")} />
       </S.PageScrollCircleList>
 
-      <AvatarModal active={avatarModalActive} userAvatar="avatar8" onClose={() => setAvatarModalActive(false)} />
+      <AvatarModal active={avatarModalActive} userAvatar={userInfo.avatar} onClose={() => setAvatarModalActive(false)} onSave={OnSave}/>
 
       <S.Wrapper id="dashboard">
         <Nav />

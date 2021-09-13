@@ -16,19 +16,20 @@ import { useState } from "react";
 
 type AvatarModalProps = {
   active: boolean;
-  userAvatar: string;
+  userAvatar: number;
   onClose: () => void;
+  onSave: () => void;
 };
 
-export default function AvatarModal({ active, userAvatar, onClose }: AvatarModalProps) {
+export default function AvatarModal({ active, userAvatar, onClose, onSave }: AvatarModalProps) {
   const avatars = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6, avatar7, avatar8, avatar9];
-  const [selectedAvatar, setSelectedAvatar] = useState(userAvatar);
+  const [selectedAvatar, setSelectedAvatar] = useState("avatar" + userAvatar);
 
   async function saveAvatar() {
     api
       .patch(`funcionario/avatar?avatar=${selectedAvatar}`)
       .then(() => {
-        onClose();
+        onSave();
       })
       .catch((error) => console.log(error));
   }
@@ -36,11 +37,17 @@ export default function AvatarModal({ active, userAvatar, onClose }: AvatarModal
   return (
     <S.Mask className={active ? "active" : ""}>
       <S.Wrapper>
-        <ul className="avatars-list">
+        <ul className="avatars-list">        
+
           {avatars.map((avatar, index) => {
             return (
               <li key={index}>
-                <img src={avatar} onClick={() => setSelectedAvatar("avatar" + (index + 1))} alt=""/>
+                <img
+                  src={avatar}
+                  className={Number(selectedAvatar.slice(-1)) === index + 1 ? "selected" : ""}
+                  onClick={() => setSelectedAvatar("avatar" + (index + 1))}
+                  alt=""
+                />
               </li>
             );
           })}
