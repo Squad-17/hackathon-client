@@ -1,13 +1,13 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
     width: 100%;
     height: 52.5rem;
     background: #fbfbfb;
-    border: solid 0.1rem ${theme.colors.secondary};
-    border-radius: 1rem;
-    padding: ${theme.spacings.xsmall};
+    border: solid 0.2rem ${theme.colors.secondary};
+    border-radius: 3rem;
+    padding: 3.5rem;
     font-size: ${theme.font.sizes.medium};
     display: flex;
     flex-direction: column;
@@ -15,16 +15,16 @@ export const Wrapper = styled.div`
 
     svg {
       margin-top: ${theme.spacings.medium};
-      max-width: 100%;
+      margin-bottom: ${theme.spacings.xlarge};
     }
 
-    a {
-      margin-top: ${theme.spacings.xlarge};
-      color: ${theme.colors.secondary};
+    a {    
+      text-decoration: none;
       font-size: ${theme.font.sizes.large};
-      text-align: center;
-      text-decoration: underline;
-      cursor: pointer;
+    }
+
+    button {
+      min-width: 260px;
     }
   `}
 `;
@@ -38,17 +38,11 @@ export const Title = styled.h2`
 `;
 
 export const ButtonWrapper = styled.div`
-  ${({ theme }) => css`
     display: flex;
+    flex-wrap: wrap;
+    row-gap: 1rem;
+    column-gap: 2.5rem;
     justify-content: center;
-    margin-top: ${theme.spacings.large};
 
-    a {
-      text-decoration: none;
-    }
-
-    @media (max-width: 550px) {
-      margin-bottom: ${theme.spacings.medium};
-    }
-  `}
-`;
+    margin-top: auto;
+`

@@ -8,7 +8,7 @@ export const Wrapper = styled.button`
     justify-content: center;
     align-items: center;
 
-    font-size: 3.rem;
+    font-size: 3rem;
     font-weight: 900;
     line-height: 3rem;
 
