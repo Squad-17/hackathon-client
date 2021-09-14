@@ -1,3 +1,5 @@
+import { Link, useHistory } from 'react-router-dom';
+import { useAuth } from '../../hooks/auth';
 import Container from '../../components/Container';
 import FormSignIn from '../../components/FormSignIn';
 import Nav from '../../components/Nav';
@@ -5,9 +7,13 @@ import Puzzle from '../../assets/puzzle.svg';
 import Button from '../../components/Button';
 
 import * as S from './styles';
-import { Link } from 'react-router-dom';
 
 export default function SignIn() {
+  const history = useHistory();
+  const { name } = useAuth();
+
+  if (name) history.push('/');
+
   return (
     <Container>
       <Nav />
