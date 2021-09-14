@@ -23,6 +23,16 @@ export const Wrapper = styled.div`
       background: #FE662E;
       color: ${theme.colors.white};
     }
+
+    @media(max-width: 736px) {
+      padding: 2rem 0;
+      background: none;
+      box-shadow: none;
+
+      .link-agendar {
+        margin: 2rem auto 0;
+      }
+    }
   `}
 `;
 

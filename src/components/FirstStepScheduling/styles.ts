@@ -78,6 +78,7 @@ export const Dates = styled.div`
 
     h3 {
       font-weight: lighter;
+      margin-bottom: 1.5rem;
     }
 
     p {
@@ -88,14 +89,11 @@ export const Dates = styled.div`
       display: flex;
       flex-wrap: wrap;
       list-style: none;
-    }
-
-    .date {
-      margin-top: ${theme.spacings.xsmall};
+      row-gap: 1.5rem;
+      column-gap: 1.5rem;
     }
 
     .date:not(:first-child) {
-      margin-left: ${theme.spacings.medium};
       display: flex;
       flex-direction: column;
       align-items: center;
