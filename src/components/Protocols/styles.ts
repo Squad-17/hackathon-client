@@ -21,7 +21,7 @@ export const Wrapper = styled.div`
       row-gap: 3rem;
       column-gap: 5rem;
       list-style: none;
-      grid-template-columns: repeat(auto-fit, minmax(34rem, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
     }
 
     .protocol {
@@ -30,6 +30,14 @@ export const Wrapper = styled.div`
       border-radius: 21px;
       text-align: center;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+
+      @media (max-width: 500px){
+        padding: 2rem;        
+      }
+      
+      svg {
+        width: 100%;
+      }
 
       p {
         font-weight: 500;

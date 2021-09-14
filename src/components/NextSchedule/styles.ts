@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   display: grid;
   column-gap: 1.5rem;
   align-items: center;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr;
 
   padding: 1rem;
   background: #f3f4f9;
@@ -25,6 +25,11 @@ export const Wrapper = styled.div`
     cursor: pointer;
     text-decoration-line: underline;
   }
+
+  @media (max-width: 350px) {
+    grid-template-columns: auto;
+    max-width: 300px;
+  }
 `;
 
 export const Day = styled.div`
@@ -39,6 +44,10 @@ export const Day = styled.div`
     border-radius: 50%;
     border: 3px solid #7474b4;
     color: ${theme.colors.primary};
+
+    @media (max-width: 350px) {
+      display: none;
+    }
   `}
 `;
 

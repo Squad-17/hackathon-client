@@ -34,7 +34,7 @@ export const GridWrapper = styled.div`
   align-items: center;
   column-gap: 5vw;
   row-gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
 `;
 
 export const PageScrollCircleList = styled.ul`
