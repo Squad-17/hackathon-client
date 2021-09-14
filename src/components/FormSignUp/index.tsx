@@ -15,6 +15,7 @@ export default function FormSignUp() {
     name: '',
     email: '',
     password: '',
+    occupation: '',
     confirmPassword: '',
   });
   const { signUp } = useAuth();
@@ -25,7 +26,12 @@ export default function FormSignUp() {
 
     setFormError('');
 
-    const errors = signUpValidate(values);
+    const errors = signUpValidate({
+      name: values.name,
+      email: values.email,
+      password: values.password,
+      confirmPassword: values.confirmPassword,
+    });
 
     if (Object.keys(errors).length) {
       setFieldErrors(errors);
@@ -35,11 +41,11 @@ export default function FormSignUp() {
 
     setFieldErrors({});
 
-    const { name: nome, email, password: senha } = values;
+    const { name: nome, email, occupation: cargo, password: senha } = values;
 
-    signUp({ nome, email, senha })
+    signUp({ nome, email, cargo, senha })
       .then(() => {
-        history.push('/agendar');
+        history.push('/');
       })
       .catch((error) => {
         setFormError(error.response.data.erro);
@@ -72,11 +78,20 @@ export default function FormSignUp() {
         />
 
         <TextField
+          label='Cargo'
+          type='text'
+          name='occupation'
+          placeholder='Dev. Front End'
+          onInputChange={(v) => handleInput('occupation', v)}
+        />
+
+        <TextField
           label='Senha'
           name='password'
           placeholder='&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;'
           type='password'
           error={fieldErrors.password}
+          maxLength={30}
           onInputChange={(v) => handleInput('password', v)}
         />
 
@@ -85,6 +100,7 @@ export default function FormSignUp() {
           name='confirmPassword'
           placeholder='&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;'
           type='password'
+          maxLength={30}
           error={fieldErrors.confirmPassword}
           onInputChange={(v) => handleInput('confirmPassword', v)}
         />

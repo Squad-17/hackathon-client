@@ -5,10 +5,14 @@ import { useAuth } from '../../hooks/auth';
 import { FieldErrors, signInValidate } from '../../utils/validations';
 import TextField from '../TextField';
 import Button from '../Button';
+import { ReactComponent as EyeOf } from '../../assets/eye-off.svg';
+import { ReactComponent as Eye } from '../../assets/eye.svg';
 
 import * as S from './styles';
 
 export default function FormSignIn() {
+  const [visible, setVisible] = useState(false);
+  const [typepassword, setTypePassword] = useState('password');
   const [formError, setFormError] = useState('');
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
   const [values, setValues] = useState({
@@ -37,7 +41,7 @@ export default function FormSignIn() {
 
     signIn({ email, senha })
       .then(() => {
-        history.push('/agendar');
+        history.push('/');
       })
       .catch((error) => {
         setFormError(error.response.data.erro);
@@ -46,6 +50,16 @@ export default function FormSignIn() {
 
   function handleInput(field: string, value: string) {
     setValues((s) => ({ ...s, [field]: value }));
+  }
+
+  function handleVisible() {
+    if (visible === true) {
+      setVisible(false);
+      setTypePassword('password');
+    } else {
+      setVisible(true);
+      setTypePassword('text');
+    }
   }
 
   return (
@@ -60,17 +74,26 @@ export default function FormSignIn() {
           onInputChange={(v) => handleInput('email', v)}
         />
 
-        <TextField
-          label='Senha'
-          type='password'
-          name='password'
-          placeholder='&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;'
-          error={fieldErrors.password}
-          onInputChange={(v) => handleInput('password', v)}
-        />
+        <div className='container-input'>
+          <TextField
+            id='test'
+            label='Senha'
+            type={typepassword}
+            name='password'
+            placeholder='&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;'
+            error={fieldErrors.password}
+            onInputChange={(v) => handleInput('password', v)}
+            maxLength={30}
+          />
+          {!visible ? (
+            <EyeOf className='icon-eye' onClick={handleVisible} />
+          ) : (
+            <Eye className='icon-eye' onClick={handleVisible} />
+          )}
+        </div>
 
         <S.ButtonWrapper>
-          <Button type='submit'>Login</Button>
+          <Button type='submit'>Fazer login</Button>
         </S.ButtonWrapper>
       </form>
 

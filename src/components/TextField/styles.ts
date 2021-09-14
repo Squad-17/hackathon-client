@@ -1,26 +1,37 @@
 import styled, { css } from 'styled-components';
 
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div`
+  margin-bottom: 2rem;
+`;
 
 export const InputWrapper = styled.div``;
 
 export const Label = styled.label`
   ${({ theme }) => css`
-    color: ${theme.colors.secondary};
-    font-size: ${theme.font.sizes.large};
+    display: block;
+    font-size: ${theme.font.sizes.xlarge};
     font-weight: 900;
+    margin-bottom: 5px;
+    color: ${theme.colors.secondary};
   `}
 `;
 
-export const Input = styled.input`
-  ${({ theme }) => css`
+type InputProps = {
+  error?: string;
+};
+
+export const Input = styled.input<InputProps>`
+  ${({ theme, error }) => css`
     width: 100%;
-    margin: ${theme.spacings.xxsmall} 0;
+    height: 4rem;
+    padding: ${theme.spacings.small} ${theme.spacings.xxsmall};
     font-size: ${theme.font.sizes.medium};
-    padding: ${theme.spacings.xxsmall};
+    margin: ${theme.spacings.xxsmall} 0;
     border: solid 0.1rem ${theme.colors.secondary};
     outline: none;
-    border-radius: 0.4rem;
+    border-radius: 0.7rem;
+
+    border: ${!!error && `solid 0.2rem ${theme.colors.red}`};
   `}
 `;
 

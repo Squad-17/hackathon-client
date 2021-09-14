@@ -1,6 +1,20 @@
 import styled, { css } from 'styled-components';
 
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div`
+  .container-input {
+    position: relative;
+    width: 100%;
+  }
+
+  .icon-eye {
+    position: absolute;
+    z-index: 2;
+    right: 1rem;
+    top: 5rem;
+    cursor: pointer;
+    background: #fefefe;
+  }
+`;
 
 export const FormError = styled.div`
   ${({ theme }) => css`

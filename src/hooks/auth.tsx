@@ -9,10 +9,11 @@ type AuthState = {
 type SignUpCredentials = {
   nome: string;
   email: string;
+  cargo: string;
   senha: string;
 };
 
-type SignInCredentials = Omit<SignUpCredentials, 'nome'>;
+type SignInCredentials = Omit<SignUpCredentials, 'nome'|'cargo'>;
 
 type AuthContextData = {
   name: string;
@@ -50,10 +51,11 @@ function AuthProvider({ children }: AuthProviderProps) {
     setData({ token, nome });
   }
 
-  async function signUp({ nome, email, senha }: SignUpCredentials) {
+  async function signUp({ nome, email, cargo, senha }: SignUpCredentials) {
     const response = await api.post('funcionario/cadastrar', {
       nome,
       email,
+      cargo,
       senha,
     });
 
