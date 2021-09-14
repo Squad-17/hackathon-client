@@ -1,14 +1,12 @@
 import styled, { css } from 'styled-components';
 
-export const Wrapper = styled.a`
+export const Wrapper = styled.div`
   ${({ theme }) => css`
-        color: ${theme.colors.secondary};
-        font-size: medium;
-        cursor: pointer;
-        text-decoration: underline;
+    a {
+      color: ${theme.colors.secondary};
+      font-size: medium;
+      cursor: pointer;
+      text-decoration: underline;
+    }
   `}
-
-  @media (max-width: 800px) {
-    padding-left: 10rem;
-  }
 `;
