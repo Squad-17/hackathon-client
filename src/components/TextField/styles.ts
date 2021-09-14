@@ -16,8 +16,12 @@ export const Label = styled.label`
   `}
 `;
 
-export const Input = styled.input`
-  ${({ theme }) => css`
+type InputProps = {
+  error?: string;
+};
+
+export const Input = styled.input<InputProps>`
+  ${({ theme, error }) => css`
     width: 100%;
     height: 4rem;
     padding: ${theme.spacings.small} ${theme.spacings.xxsmall};
@@ -26,6 +30,8 @@ export const Input = styled.input`
     border: solid 0.1rem ${theme.colors.secondary};
     outline: none;
     border-radius: 0.7rem;
+
+    border: ${!!error && `solid 0.2rem ${theme.colors.red}`};
   `}
 `;
 
