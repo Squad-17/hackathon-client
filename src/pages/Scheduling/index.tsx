@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Container from '../../components/Container';
 import FirstStepScheduling from '../../components/FirstStepScheduling';
 import FormStepBar from '../../components/FormStepBar';
+import LinkViewPages from '../../components/LinkViewPages';
 import Nav from '../../components/Nav';
 import SchedulingConfirmation from '../../components/SchedulingConfirmation';
 import SchedulingSucceed from '../../components/SchedulingSucceed';
@@ -28,6 +29,10 @@ export default function Scheduling() {
   return (
     <Container>
       <Nav />
+
+      <S.LinkViewPagesWrapper>
+        <LinkViewPages to='/' name='<< Dashboard' />
+      </S.LinkViewPagesWrapper>
 
       <S.Wrapper>
         <FormStepBar currentStep={currentStep} />

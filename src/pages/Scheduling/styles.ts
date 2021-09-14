@@ -14,3 +14,13 @@ export const SchedulingWrapper = styled.div`
     margin-top: ${theme.spacings.medium};
   `}
 `;
+
+export const LinkViewPagesWrapper = styled.div`
+  ${({ theme }) => css`
+    margin-top: ${theme.spacings.medium};
+
+    @media (max-width: 800px) {
+      margin-top: ${theme.spacings.xsmall};
+    }
+  `}
+`;
