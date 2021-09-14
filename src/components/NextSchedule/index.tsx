@@ -25,18 +25,19 @@ export default function NextSchedule({ schedule }: NextScheduleProps) {
 
       <S.LocalWrapper>
         <p>{scheduleDate.toLocaleDateString("pt-BR", { year: "numeric", month: "long", day: "numeric" })}</p>
-        <p>{schedule.local.cidade}</p>
+        <p>
+          {schedule.local.cidade}{" "}
+          <Link
+            to={{
+              pathname: "/cancelar-agendamento",
+              state: { localId: schedule.local.id, data: schedule.data },
+            }}
+          >
+            Cancelar
+          </Link>
+        </p>
         <p>{schedule.local.endereco}</p>
       </S.LocalWrapper>
-      
-      <Link
-          to={{
-            pathname: '/cancelar-agendamento',
-            state: { localId: schedule.local.id, data: schedule.data },
-          }}
-        >
-          Cancelar
-        </Link>
     </S.Wrapper>
   );
 }

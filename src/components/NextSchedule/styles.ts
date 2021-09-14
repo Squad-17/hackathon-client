@@ -44,13 +44,17 @@ export const Day = styled.div`
 
 export const LocalWrapper = styled.div`
   p {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
     color: #5a6575;
     font-weight: 500;
     font-size: 1.6rem;
     line-height: 1.6rem;
 
     &:not(:last-of-type) {
-      margin-bottom: 0.7rem;
+      margin-bottom: 1rem;
     }
   }
 `;
