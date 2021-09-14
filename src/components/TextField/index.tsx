@@ -38,6 +38,7 @@ const TextField = ({
         id={name}
         value={value}
         onChange={onChange}
+        error={error}
         {...props}
       />
 
