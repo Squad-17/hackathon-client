@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
@@ -16,15 +16,20 @@ export const Wrapper = styled.div`
       display: block;
       width: min-content;
       margin: 5rem auto 0;
-      padding: 2rem 4rem;      
+      padding: 2rem 4rem;
       border-radius: 0.8rem;
       text-decoration: none;
 
-      background: #FE662E;
+      background: #fe662e;
       color: ${theme.colors.white};
+      transition: 0.3s;
+
+      &:hover {
+        background: ${theme.colors.primary};
+      }
     }
 
-    @media(max-width: 736px) {
+    @media (max-width: 736px) {
       padding: 2rem 0;
       background: none;
       box-shadow: none;
