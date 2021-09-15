@@ -30,7 +30,7 @@ export const Wrapper = styled.div`
     gap: 2rem;
     display: grid;
     list-style: none;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
 
     img {
       width: 100%;
@@ -51,15 +51,16 @@ export const Wrapper = styled.div`
 
 export const ButtonWrapper = styled.div`
   display: flex;
+  row-gap: 1rem;
+  flex-wrap: wrap;
   column-gap: 3rem;
   justify-content: space-between;
 
   margin-top: 3rem;
 
   button {
-    font-weight: bold;
-    font-size: 3.4rem;
-    line-height: 3.4rem;
     padding: 3rem;
+    font-weight: bold;
+    font-size: 2.5rem;    
   }
 `;

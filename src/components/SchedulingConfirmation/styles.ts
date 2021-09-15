@@ -10,6 +10,8 @@ export const Wrapper = styled.div`
     padding: 3.5rem 2rem;
     font-size: ${theme.font.sizes.medium};
 
+    text-align: center;
+
     display: flex;
     flex-direction: column;
 
@@ -23,14 +25,12 @@ export const Title = styled.h2`
   ${({ theme }) => css`
     color: ${theme.colors.secondary};
     font-size: ${theme.font.sizes.xlarge};
-    text-align: center;
+    margin-bottom: auto;
   `}
 `;
 
 export const Local = styled.div`
   ${({ theme }) => css`
-    margin-top: ${theme.spacings.medium};
-
     h3 {
       font-weight: lighter;
     }

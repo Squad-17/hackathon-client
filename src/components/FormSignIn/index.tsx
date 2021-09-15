@@ -44,7 +44,7 @@ export default function FormSignIn() {
         history.push('/');
       })
       .catch((error) => {
-        setFormError(error.response.data.erro);
+        setFormError(error?.response?.data?.erro);
       });
   }
 
