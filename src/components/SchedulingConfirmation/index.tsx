@@ -11,9 +11,10 @@ type SchedulingConfirmationProps = {
 };
 
 function getFormatedDate(date: string) {
-  const newDate = new Date(date);
+  const newDate = new Date(date).toISOString().substring(0, 10);
+  const formatedDate = newDate.split('-').reverse().join('/');
 
-  return new Intl.DateTimeFormat('pt-Br').format(newDate);
+  return formatedDate;
 }
 
 export default function SchedulingConfirmation({
